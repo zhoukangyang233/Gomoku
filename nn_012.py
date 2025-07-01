@@ -24,8 +24,8 @@ class Config:
     channel = 32
     num_workers = 10
     train_simulation = 20
-    base_path = '/mnt/nn/0603_gomoku_cnn_9/1800.pth'
-    model_path = '0603_gomoku_cnn_10'
+    base_path = None
+    model_path = 'gomoku_cnn'
     mcts_type = 'mean'
     output_info = True
     collect_subnode = True
