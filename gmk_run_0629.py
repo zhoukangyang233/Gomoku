@@ -9,7 +9,7 @@ import nn_012 as gomoku_cnn
 from nn_012 import MCTS
 
 class Config:
-    ai_model = 'run4_1258.pth'
+    ai_model = 'run10_2000.pth'
     ai_simulation = 200
     simulation_update = 10
     show_shape = 'circle' # square or circle
