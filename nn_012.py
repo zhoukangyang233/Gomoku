@@ -23,9 +23,9 @@ class Config:
     num_samples = 100
     channel = 32
     num_workers = 10
-    train_simulation = 20
-    base_path = None
-    model_path = 'gomoku_cnn'
+    train_simulation = 30
+    base_path = None # path to your base model
+    model_path = '0603_gomoku_cnn_10' # path of training checkpoints
     mcts_type = 'mean'
     output_info = True
     collect_subnode = True
@@ -218,7 +218,7 @@ class MCTSNode:
 
 accumulate_sum = 0
 class MCTS:
-    def __init__(self, model, c_puct=0.8, puct2=0.02, parallel=0, use_rand=0.01):
+    def __init__(self, model, c_puct=0.8, puct2=0, parallel=0, use_rand=0.01):
         self.c_puct = c_puct
         self.puct2 = puct2
         self.use_rand = use_rand
@@ -228,7 +228,8 @@ class MCTS:
             self.model = ValueCNN()
             self.model.load_state_dict(torch.load(model,map_location=torch.device(self.device),weights_only=True))
         else:
-            self.model = model.to(self.device)
+            self.model = model
+        self.model = self.model.to(self.device)
         self.visited_nodes = []
     
     def new_node(self, *args, **kwargs):
