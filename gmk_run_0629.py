@@ -333,3 +333,7 @@ else:
     if __name__ == "__main__":
         game = GomokuGUI()
         asyncio.run(game.main())
+
+def main():
+    game = GomokuGUI()
+    asyncio.run(game.main())
