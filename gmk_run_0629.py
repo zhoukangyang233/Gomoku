@@ -35,11 +35,11 @@ class GomokuGUI:
 
         # ===== 三行 UI =====
         self.row_height = 40
-        self.vgap = 10
-        self.row1_y = self.width + 10
+        self.vgap = 8
+        self.row1_y = self.width + 5
         self.row2_y = self.row1_y + self.row_height + self.vgap
         self.row3_y = self.row2_y + self.row_height + self.vgap  # 拉条行顶
-        self.slider_zone_h = 60  # 第三行高度
+        self.slider_zone_h = 50  # 第三行高度
         self.ui_height = (self.row3_y + self.slider_zone_h + 10) - self.width
 
         self.screen = pygame.display.set_mode((self.width, self.width + self.ui_height))
@@ -474,7 +474,7 @@ class GomokuGUI:
                      (self.current_player == -1 and self.white_is_ai)
 
         if self.enable_research or is_ai_turn:
-            self.run_mcts(Config.simulation_update if self.root else Config.simulation_update * 3, cur_root=self.root)
+            self.run_mcts(Config.simulation_update if self.root else Config.simulation_update * 2, cur_root=self.root)
 
         if is_ai_turn and self.root and self.root.visit_count >= Config.ai_simulation:
             move = self.get_ai_move()
