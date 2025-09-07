@@ -1,0 +1,25 @@
+[project]
+name = "Gomoku"
+version = "0.1.0"
+description = "MCTS+CNN Gomoku AI"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+	"numpy",
+	"pygame",
+	"torch",
+	"tqdm",
+	"matplotlib"
+]
+
+[tool.setuptools]
+py-modules = [
+  "gmk_pk_0619",
+  "gmk_run_0629",
+  "nn_009",
+  "nn_012",
+]
+
+[project.scripts]
+gomoku-gui = "gmk_run_0629:main"
+
